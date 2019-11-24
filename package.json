@@ -1,7 +1,7 @@
 {
-  "name": "typescript-library-skeleton",
+  "name": "@speleotica/frcs2compass",
   "version": "0.0.0-development",
-  "description": "my personal ES2015 library project skeleton",
+  "description": "converts frcsdata to compass data",
   "main": "index.js",
   "sideEffects": false,
   "scripts": {
@@ -30,6 +30,9 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "husky": {
     "hooks": {
@@ -69,17 +72,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jedwards1211/typescript-library-skeleton.git"
+    "url": "https://github.com/speleotica/frcs2compass.git"
   },
   "keywords": [
-    "typescript"
+    "frcsdata",
+    "compass",
+    "cave-survey",
+    "speleotica"
   ],
   "author": "Andy Edwards",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jedwards1211/typescript-library-skeleton/issues"
+    "url": "https://github.com/speleotica/frcs2compass/issues"
   },
-  "homepage": "https://github.com/jedwards1211/typescript-library-skeleton#readme",
+  "homepage": "https://github.com/speleotica/frcs2compass#readme",
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
@@ -123,7 +129,10 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.5"
+    "@babel/runtime": "^7.1.5",
+    "@speleotica/compass": "^2.0.0",
+    "@speleotica/frcsdata": "^1.0.0",
+    "@speleotica/unitized": "^1.0.2"
   },
   "renovate": {
     "extends": [
