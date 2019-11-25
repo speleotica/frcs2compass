@@ -8,7 +8,7 @@ import {
   CompassDatFile,
   CompassTrip,
   LrudItem,
-  LengthUnit,
+  DistanceUnit,
   AzimuthUnit,
   InclinationUnit,
   FrontsightItem,
@@ -17,14 +17,14 @@ import {
 } from '@speleotica/compass/dat'
 import { Angle, Unit, Length } from '@speleotica/unitized'
 
-function convertDistanceUnit(unit: Unit<Length>): LengthUnit {
+function convertDistanceUnit(unit: Unit<Length>): DistanceUnit {
   switch (unit) {
     case Length.inches:
-      return LengthUnit.FeetAndInches
+      return DistanceUnit.FeetAndInches
     case Length.feet:
-      return LengthUnit.DecimalFeet
+      return DistanceUnit.DecimalFeet
     default:
-      return LengthUnit.Meters
+      return DistanceUnit.Meters
   }
 }
 
@@ -60,6 +60,7 @@ export default function convertToDat({
           header: {
             name,
             date,
+            team,
             distanceUnit,
             azimuthUnit,
             inclinationUnit,
@@ -81,7 +82,11 @@ export default function convertToDat({
             name: String(index + 1),
             date: summary ? summary.date : date || new Date(0, 0, 1),
             comment: summary ? summary.name : name,
-            team: summary ? summary.team.join(';') : null,
+            team: summary
+              ? summary.team.join(';')
+              : team
+              ? team.join(';')
+              : null,
             declination: Angle.degrees(0),
             distanceUnit: convertDistanceUnit(distanceUnit),
             azimuthUnit: convertAzimuthUnit(azimuthUnit),
@@ -120,7 +125,7 @@ export default function convertToDat({
               right,
               up,
               down,
-              excludeLength,
+              excludeDistance,
               comment,
             }) => ({
               from: to ? from : `${from}LRUD`,
@@ -140,7 +145,7 @@ export default function convertToDat({
               right,
               up,
               down,
-              excludeLength,
+              excludeDistance,
               comment,
             })
           ),

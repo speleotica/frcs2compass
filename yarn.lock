@@ -1134,19 +1134,19 @@
     into-stream "^4.0.0"
     lodash "^4.17.4"
 
-"@speleotica/compass@^2.0.0":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@speleotica/compass/-/compass-2.0.1.tgz#908312cfc034db827c2050fb10aef516bbe46913"
-  integrity sha512-mNbC33bS0Uj7uTZfz+bMEcvR2ktbE2y/Wwi1pXveeA7Hmy6PG7X/G25kvCG1IwEghB/a/mRf7fSRW2k5lICpSw==
+"@speleotica/compass@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@speleotica/compass/-/compass-3.0.0.tgz#347e8fee1a45aa2a529e0f0bbd1162900dad3c56"
+  integrity sha512-Fs8AAluuXuarI+10/l17bWwjft5NxXshIyoOKd33SRf1gUSy1S8S5ITRU3/i5SeSxBD9iXumVIJ9MG7EfzJgVg==
   dependencies:
     "@babel/runtime" "^7.1.5"
     "@speleotica/unitized" "^1.0.0"
     lodash "^4.17.15"
 
-"@speleotica/frcsdata@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@speleotica/frcsdata/-/frcsdata-1.0.0.tgz#fcba9195037c098ce406b5a76fdf3322c1e3405f"
-  integrity sha512-y9OaHUlZUS6fb0naEE5yaxgp9Gjh/6IDGtwJFGUnVmoE6IDW+lXR36kJFRJNhkEvo/Mxe/AShDPt50Mz3k7rVQ==
+"@speleotica/frcsdata@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@speleotica/frcsdata/-/frcsdata-2.0.0.tgz#ef7d22ec1785fbd598de955829af00e8d9294967"
+  integrity sha512-ba4rRtX+FjMZWC9OEYDM9EqUGjUxyXQRJdtIMuDXjf3D6zWxg5DNYIxm8M1EeAfUUtKgfDsZRjHJAr1niKlwxA==
   dependencies:
     "@babel/runtime" "^7.1.5"
     "@speleotica/unitized" "^1.0.0"
