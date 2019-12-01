@@ -15,7 +15,7 @@ import {
   BacksightItem,
   LrudAssociation,
 } from '@speleotica/compass/dat'
-import { Angle, Unit, Length } from '@speleotica/unitized'
+import { Angle, Unit, Length, Unitize } from '@speleotica/unitized'
 
 function convertDistanceUnit(unit: Unit<Length>): DistanceUnit {
   switch (unit) {
@@ -87,7 +87,7 @@ export default function convertToDat({
               : team
               ? team.join(';')
               : null,
-            declination: Angle.degrees(0),
+            declination: Unitize.degrees(0),
             distanceUnit: convertDistanceUnit(distanceUnit),
             azimuthUnit: convertAzimuthUnit(azimuthUnit),
             inclinationUnit: convertInclinationUnit(inclinationUnit),

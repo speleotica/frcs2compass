@@ -1134,28 +1134,28 @@
     into-stream "^4.0.0"
     lodash "^4.17.4"
 
-"@speleotica/compass@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@speleotica/compass/-/compass-3.0.0.tgz#347e8fee1a45aa2a529e0f0bbd1162900dad3c56"
-  integrity sha512-Fs8AAluuXuarI+10/l17bWwjft5NxXshIyoOKd33SRf1gUSy1S8S5ITRU3/i5SeSxBD9iXumVIJ9MG7EfzJgVg==
+"@speleotica/compass@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@speleotica/compass/-/compass-4.0.0.tgz#4d115f0a0b99a57ac998d0b8b460d63c7de86bcf"
+  integrity sha512-DX+trzQlpYEqFE3ZUkLRaMtSBVRGfb08eHfalwD7yf5jfP4oR+32UlNhXzryy2dIld+XzHrkJ2hFpaknN3a7tA==
   dependencies:
     "@babel/runtime" "^7.1.5"
-    "@speleotica/unitized" "^1.0.0"
+    "@speleotica/unitized" "^2.0.0"
     lodash "^4.17.15"
 
-"@speleotica/frcsdata@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@speleotica/frcsdata/-/frcsdata-2.0.0.tgz#ef7d22ec1785fbd598de955829af00e8d9294967"
-  integrity sha512-ba4rRtX+FjMZWC9OEYDM9EqUGjUxyXQRJdtIMuDXjf3D6zWxg5DNYIxm8M1EeAfUUtKgfDsZRjHJAr1niKlwxA==
+"@speleotica/frcsdata@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@speleotica/frcsdata/-/frcsdata-3.0.0.tgz#8445adc9e3a44114b52cfb43e56be47053981a48"
+  integrity sha512-lhzgrm+4mliukzlkKx8W+1Q4bCYD7U67sU1aIJFJBO6nkWfWBim7hQc5nL3U/kaosy/k3cVWeiG1qJl17FBC2w==
   dependencies:
     "@babel/runtime" "^7.1.5"
-    "@speleotica/unitized" "^1.0.0"
+    "@speleotica/unitized" "^2.0.0"
     parse-segment "^1.5.1"
 
-"@speleotica/unitized@^1.0.0", "@speleotica/unitized@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@speleotica/unitized/-/unitized-1.0.2.tgz#040077602c1255a062fa72d30aa3fad27d4274a3"
-  integrity sha512-iMQZTb+8aOgdJfebSSAVoDqOPVI2QtgwVam9AgnJhWFpKtfmrqbH0GZfLP+++Ecc3TjRX3KCRlQh/HmTAEUzZw==
+"@speleotica/unitized@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@speleotica/unitized/-/unitized-2.0.0.tgz#a653225b9f30ae6eefb416d06303b06774e27302"
+  integrity sha512-AqAMxM/j5zB01XI2RGiElJWE1ziljqSeubPsxw8ef57Dym5ONQO12gnZYfWI6gUE/2po26QPxlHhc9jaPv93+w==
   dependencies:
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.4.4"
     "@babel/plugin-proposal-optional-chaining" "^7.6.0"
