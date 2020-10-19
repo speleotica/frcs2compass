@@ -115,7 +115,6 @@ export default function convertToDat({
             backsightInclination = backsightInclination.negate()
           if (!frontsightInclination && !backsightInclination) {
             frontsightInclination = Unitize.degrees(0)
-            backsightInclination = Unitize.degrees(0)
           }
           if (
             !distance ||
@@ -125,7 +124,6 @@ export default function convertToDat({
           ) {
             if (!frontsightAzimuth && !backsightAzimuth) {
               frontsightAzimuth = Unitize.degrees(0)
-              backsightAzimuth = Unitize.degrees(0)
             }
           }
           if (distance == null) distance = new UnitizedNumber(0, distanceUnit)
