@@ -54,20 +54,14 @@ function convertInclinationUnit(unit: Unit<Angle>): InclinationUnit {
   }
 }
 
-function isVertical(shot: FrcsShot): boolean {
-  function helper(
-    inc1: UnitizedNumber<Angle> | null | undefined,
-    inc2: UnitizedNumber<Angle> | null | undefined
-  ): boolean {
-    return (
-      inc1 != null &&
-      Math.abs(90 - Math.abs(inc1.get(Angle.degrees))) < 1e-6 &&
-      (inc2 == null || inc2.get(inc1.unit) === inc1.get(inc1.unit))
-    )
-  }
+function isVertical(
+  inc1: UnitizedNumber<Angle> | null | undefined,
+  inc2: UnitizedNumber<Angle> | null | undefined
+): boolean {
   return (
-    helper(shot.frontsightInclination, shot.backsightInclination) ||
-    helper(shot.backsightInclination, shot.frontsightInclination)
+    inc1 != null &&
+    Math.abs(90 - Math.abs(inc1.get(Angle.degrees))) < 1e-6 &&
+    (inc2 == null || inc2.get(inc1.unit) === inc1.get(inc1.unit))
   )
 }
 
@@ -118,12 +112,27 @@ export default function convertToDat({
           if (backsightAzimuth && backsightAzimuthCorrected)
             backsightAzimuth = Angle.opposite(backsightAzimuth)
           if (backsightInclination && backsightInclinationCorrected)
-            backsightInclination = Angle.opposite(backsightInclination)
+            backsightInclination = backsightInclination.negate()
           if (!frontsightInclination && !backsightInclination) {
             frontsightInclination = Unitize.degrees(0)
             backsightInclination = Unitize.degrees(0)
           }
-          if (!distance || distance.isZero || isVertical(shot)) {
+          if (
+            !distance ||
+            distance.isZero ||
+            isVertical(
+              frontsightInclination,
+              backsightInclination && !backsightInclinationCorrected
+                ? backsightInclination.negate()
+                : backsightInclination
+            ) ||
+            isVertical(
+              backsightInclination && !backsightInclinationCorrected
+                ? backsightInclination.negate()
+                : backsightInclination,
+              frontsightInclination
+            )
+          ) {
             if (!frontsightAzimuth && !backsightAzimuth) {
               frontsightAzimuth = Unitize.degrees(0)
               backsightAzimuth = Unitize.degrees(0)

@@ -50,6 +50,20 @@ FROM         TO           LEN     BEAR    INC     LEFT    RIGHT   UP      DOWN  
            A2           A3   12.42  333.50   35.00    3.00    1.00   15.00    5.00  153.50 -999.00
            A3           A4    4.17    0.00   90.00    3.00    1.00   10.00   10.00    0.00 -999.00
 \f
+Fisher Ridge Cave System
+SURVEY NAME: 3
+SURVEY DATE: 3 6 1981  COMMENT:DOUG'S DEMISE (50 FT DROP), CHRIS CROSS, CRAWL ABOVE DROP
+SURVEY TEAM:
+Peter Quick;Chris Gerace;Phil Oden;Chip Hopper
+DECLINATION: 0.00  FORMAT: DDDDLRUDLADadBT
+
+FROM         TO           LEN     BEAR    INC     LEFT    RIGHT   UP      DOWN    AZM2    INC2    FLAGS COMMENTS
+
+           J6         ML$1   50.00  124.00   11.00   12.00   12.00   35.00   15.00  303.50  -11.00
+         ML$1         ML$2   32.00  157.00   53.00   30.00    2.00   16.00    5.00  337.00  -53.00
+         ML$2         ML$3   25.10  142.50   -5.00    0.00    4.00    5.00    7.00  324.00    5.00
+         ML$3         ML$4    6.00    0.00  -90.00    0.00    4.00   11.00    1.00    0.00   90.00
+\f
 `.replace(/\n/gm, '\r\n')
     )
   })
