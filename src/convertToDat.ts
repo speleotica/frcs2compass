@@ -123,7 +123,7 @@ export default function convertToDat({
             frontsightInclination = Unitize.degrees(0)
             backsightInclination = Unitize.degrees(0)
           }
-          if (isVertical(shot)) {
+          if (!distance || distance.isZero || isVertical(shot)) {
             if (!frontsightAzimuth && !backsightAzimuth) {
               frontsightAzimuth = Unitize.degrees(0)
               backsightAzimuth = Unitize.degrees(0)

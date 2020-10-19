@@ -1,6 +1,6 @@
 {
   "name": "@speleotica/frcs2compass",
-  "version": "0.0.0-development",
+  "version": "3.0.1",
   "description": "converts frcsdata to compass data",
   "main": "index.js",
   "sideEffects": false,
