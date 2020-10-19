@@ -26,7 +26,7 @@ DECLINATION: 0.00  FORMAT: DDDDLRUDLADadBT
 
 FROM         TO           LEN     BEAR    INC     LEFT    RIGHT   UP      DOWN    AZM2    INC2    FLAGS COMMENTS
 
-     AE20LRUD         AE20    0.00 -999.00 -999.00    1.00    3.00    0.00    2.00 -999.00 -999.00 #|L#
+     AE20LRUD         AE20    0.00 -999.00    0.00    1.00    3.00    0.00    2.00 -999.00    0.00 #|L#
          AE20         AE19    9.30   60.00  -36.00    2.00   12.00    0.00   20.00  240.00 -999.00 AE20     0        0        0        Bug-can't put before so put after-so can't m
          AE19         AE18   24.50    0.00  -90.00    6.00   10.00   25.00    0.00  180.00 -999.00
          AE18         AE17    8.00  350.50   17.00    3.00    5.00    0.00    0.00  170.50 -999.00
@@ -35,6 +35,7 @@ FROM         TO           LEN     BEAR    INC     LEFT    RIGHT   UP      DOWN  
          AE15         AE14   10.00   21.50    6.00    5.00    5.00    0.00    3.00  200.00 -999.00
          AE14         AE13   26.80  288.00  -50.00    0.00    7.00   20.00    5.00  106.00 -999.00
          AE13         AE12   20.70  236.00   34.00    3.00    5.00    4.00    4.00   56.00 -999.00 SHORT CANYON AT THE BASE OF THE SECOND DROP
+         AE12         AE11   26.80    0.00  -90.00    0.00    7.00   20.00    5.00    0.00 -999.00
 \f
 Fisher Ridge Cave System
 SURVEY NAME: 2

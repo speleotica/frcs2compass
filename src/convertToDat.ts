@@ -1,5 +1,6 @@
 import {
   FrcsSurveyFile,
+  FrcsShot,
   FrcsTrip,
   FrcsTripSummaryFile,
   FrcsTripSummary,
@@ -7,6 +8,7 @@ import {
 import {
   CompassDatFile,
   CompassTrip,
+  CompassShot,
   LrudItem,
   DistanceUnit,
   AzimuthUnit,
@@ -15,7 +17,13 @@ import {
   BacksightItem,
   LrudAssociation,
 } from '@speleotica/compass/dat'
-import { Angle, Unit, Length, Unitize } from '@speleotica/unitized'
+import {
+  Angle,
+  Unit,
+  Length,
+  Unitize,
+  UnitizedNumber,
+} from '@speleotica/unitized'
 
 function convertDistanceUnit(unit: Unit<Length>): DistanceUnit {
   switch (unit) {
@@ -44,6 +52,23 @@ function convertInclinationUnit(unit: Unit<Angle>): InclinationUnit {
     default:
       return InclinationUnit.Degrees
   }
+}
+
+function isVertical(shot: FrcsShot): boolean {
+  function helper(
+    inc1: UnitizedNumber<Angle> | null | undefined,
+    inc2: UnitizedNumber<Angle> | null | undefined
+  ): boolean {
+    return (
+      inc1 != null &&
+      Math.abs(90 - Math.abs(inc1.get(Angle.degrees))) < 1e-6 &&
+      (inc2 == null || inc2.get(inc1.unit) === inc1.get(inc1.unit))
+    )
+  }
+  return (
+    helper(shot.frontsightInclination, shot.backsightInclination) ||
+    helper(shot.backsightInclination, shot.frontsightInclination)
+  )
 }
 
 export default function convertToDat({
@@ -76,6 +101,56 @@ export default function convertToDat({
         const summary: FrcsTripSummary | undefined = summaries
           ? summaries.tripSummaries[index]
           : undefined
+
+        const convertShot = (shot: FrcsShot): CompassShot => {
+          const { from, to, excludeDistance, comment } = shot
+          let {
+            distance,
+            frontsightAzimuth,
+            frontsightInclination,
+            backsightAzimuth,
+            backsightInclination,
+            left,
+            right,
+            up,
+            down,
+          } = shot
+          if (backsightAzimuth && backsightAzimuthCorrected)
+            backsightAzimuth = Angle.opposite(backsightAzimuth)
+          if (backsightInclination && backsightInclinationCorrected)
+            backsightInclination = Angle.opposite(backsightInclination)
+          if (!frontsightInclination && !backsightInclination) {
+            frontsightInclination = Unitize.degrees(0)
+            backsightInclination = Unitize.degrees(0)
+          }
+          if (isVertical(shot)) {
+            if (!frontsightAzimuth && !backsightAzimuth) {
+              frontsightAzimuth = Unitize.degrees(0)
+              backsightAzimuth = Unitize.degrees(0)
+            }
+          }
+          if (distance == null) distance = new UnitizedNumber(0, distanceUnit)
+          if (left == null) left = new UnitizedNumber(0, distanceUnit)
+          if (right == null) right = new UnitizedNumber(0, distanceUnit)
+          if (up == null) up = new UnitizedNumber(0, distanceUnit)
+          if (down == null) down = new UnitizedNumber(0, distanceUnit)
+          return {
+            from: to ? from : `${from}LRUD`,
+            to: to ? to : from,
+            distance,
+            frontsightAzimuth,
+            frontsightInclination,
+            backsightAzimuth,
+            backsightInclination,
+            left,
+            right,
+            up,
+            down,
+            excludeDistance,
+            comment,
+          }
+        }
+
         return {
           header: {
             cave: survey.cave || '',
@@ -112,43 +187,7 @@ export default function convertToDat({
             ),
             lrudAssociation: LrudAssociation.ToStation,
           },
-          shots: shots.map(
-            ({
-              from,
-              to,
-              distance,
-              frontsightAzimuth,
-              frontsightInclination,
-              backsightAzimuth,
-              backsightInclination,
-              left,
-              right,
-              up,
-              down,
-              excludeDistance,
-              comment,
-            }) => ({
-              from: to ? from : `${from}LRUD`,
-              to: to ? to : from,
-              distance,
-              frontsightAzimuth,
-              frontsightInclination,
-              backsightAzimuth:
-                backsightAzimuth && backsightAzimuthCorrected
-                  ? Angle.opposite(backsightAzimuth)
-                  : backsightAzimuth,
-              backsightInclination:
-                backsightInclination && backsightInclinationCorrected
-                  ? backsightInclination.negate()
-                  : backsightInclination,
-              left,
-              right,
-              up,
-              down,
-              excludeDistance,
-              comment,
-            })
-          ),
+          shots: shots.map(convertShot),
         }
       }
     ),
