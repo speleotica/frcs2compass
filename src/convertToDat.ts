@@ -120,18 +120,8 @@ export default function convertToDat({
           if (
             !distance ||
             distance.isZero ||
-            isVertical(
-              frontsightInclination,
-              backsightInclination && !backsightInclinationCorrected
-                ? backsightInclination.negate()
-                : backsightInclination
-            ) ||
-            isVertical(
-              backsightInclination && !backsightInclinationCorrected
-                ? backsightInclination.negate()
-                : backsightInclination,
-              frontsightInclination
-            )
+            isVertical(frontsightInclination, backsightInclination?.negate()) ||
+            isVertical(backsightInclination?.negate(), frontsightInclination)
           ) {
             if (!frontsightAzimuth && !backsightAzimuth) {
               frontsightAzimuth = Unitize.degrees(0)

@@ -64,6 +64,24 @@ FROM         TO           LEN     BEAR    INC     LEFT    RIGHT   UP      DOWN  
          ML$2         ML$3   25.10  142.50   -5.00    0.00    4.00    5.00    7.00  324.00    5.00
          ML$3         ML$4    6.00    0.00  -90.00    0.00    4.00   11.00    1.00    0.00   90.00
 \f
+Fisher Ridge Cave System
+SURVEY NAME: 4
+SURVEY DATE: 3 5 1983  COMMENT:Hunky-Dory Mopup:  Q19-PD7 loop (Quap Passage), Q1 Side Lead, Others.
+SURVEY TEAM:
+PETER QUICK;CHIP HOPPER
+DECLINATION: 0.00  FORMAT: DDDDLRUDLADadBT
+
+FROM         TO           LEN     BEAR    INC     LEFT    RIGHT   UP      DOWN    AZM2    INC2    FLAGS COMMENTS
+
+          Q19         QAP1   25.00   49.50  -12.00    3.00    3.00    1.00    7.00  229.50   11.00 Quap Passage short cut from the Hunky-Dory access crawl.
+         QAP1         QAP2   27.20  100.50    2.50    2.00    3.00    0.00   10.00  280.00   -2.50
+         QAP2         QAP3   14.80   39.50  -11.00    1.00    4.00    1.00   12.00  219.50   10.50
+         QAP3         QAP4   21.10  355.00    2.00    4.00    4.00    2.00   12.00  174.00   -2.50
+         QAP4         QAP5   43.60  343.00   -5.00    2.00    7.00    5.00   12.00  161.50    4.50
+         QAP5         QAP6   23.00   39.50    9.00    3.00    4.00    0.00   15.00  219.00   -9.50
+         QAP6         QAP7   35.10   11.50    0.50    3.00    6.00    1.00   25.00  191.00   -1.00
+         QAP7         QAP8    5.80    0.00  -90.00    2.00    4.00    6.00   20.00    0.00   90.00
+\f
 `.replace(/\n/gm, '\r\n')
     )
   })
