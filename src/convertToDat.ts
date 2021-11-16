@@ -96,7 +96,7 @@ export default function convertToDat({
           ? summaries.tripSummaries[index]
           : undefined
 
-        const convertShot = (shot: FrcsShot): CompassShot => {
+        function* convertShot(shot: FrcsShot): Iterable<CompassShot> {
           const { from, to, excludeDistance, comment } = shot
           let {
             distance,
@@ -104,11 +104,8 @@ export default function convertToDat({
             frontsightInclination,
             backsightAzimuth,
             backsightInclination,
-            left,
-            right,
-            up,
-            down,
           } = shot
+          const { fromLruds, toLruds } = shot
           if (backsightAzimuth && backsightAzimuthCorrected)
             backsightAzimuth = Angle.opposite(backsightAzimuth)
           if (backsightInclination && backsightInclinationCorrected)
@@ -127,13 +124,27 @@ export default function convertToDat({
             }
           }
           if (distance == null) distance = new UnitizedNumber(0, distanceUnit)
+          if (fromLruds) {
+            const { left, right, up, down } = fromLruds
+            yield {
+              from: `${from}LRUD`,
+              to: from,
+              distance: new UnitizedNumber(0, distanceUnit),
+              left,
+              right,
+              up,
+              down,
+            }
+          }
+          if (!to) return
+          let { left, right, up, down } = toLruds || {}
           if (left == null) left = new UnitizedNumber(0, distanceUnit)
           if (right == null) right = new UnitizedNumber(0, distanceUnit)
           if (up == null) up = new UnitizedNumber(0, distanceUnit)
           if (down == null) down = new UnitizedNumber(0, distanceUnit)
-          return {
-            from: to ? from : `${from}LRUD`,
-            to: to ? to : from,
+          yield {
+            from,
+            to,
             distance,
             frontsightAzimuth,
             frontsightInclination,
@@ -146,6 +157,12 @@ export default function convertToDat({
             excludeDistance,
             comment,
           }
+        }
+
+        const convertedShots = []
+        for (const shot of shots) {
+          for (const converted of convertShot(shot))
+            convertedShots.push(converted)
         }
 
         return {
@@ -184,7 +201,7 @@ export default function convertToDat({
             ),
             lrudAssociation: LrudAssociation.ToStation,
           },
-          shots: shots.map(convertShot),
+          shots: convertedShots,
         }
       }
     ),

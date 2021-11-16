@@ -130,7 +130,7 @@
   "dependencies": {
     "@babel/runtime": "^7.1.5",
     "@speleotica/compass": "^4.0.0",
-    "@speleotica/frcsdata": "^3.0.0",
+    "@speleotica/frcsdata": "^4.0.0",
     "@speleotica/unitized": "^2.0.0"
   },
   "renovate": {

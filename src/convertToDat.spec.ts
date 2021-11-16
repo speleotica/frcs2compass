@@ -26,7 +26,7 @@ DECLINATION: 0.00  FORMAT: DDDDLRUDLADadBT
 
 FROM         TO           LEN     BEAR    INC     LEFT    RIGHT   UP      DOWN    AZM2    INC2    FLAGS COMMENTS
 
-     AE20LRUD         AE20    0.00    0.00    0.00    1.00    3.00    0.00    2.00 -999.00 -999.00 #|L#
+     AE20LRUD         AE20    0.00 -999.00 -999.00    1.00    3.00    0.00    2.00 -999.00 -999.00
          AE20         AE19    9.30   60.00  -36.00    2.00   12.00    0.00   20.00  240.00 -999.00 AE20     0        0        0        Bug-can't put before so put after-so can't m
          AE19         AE18   24.50    0.00  -90.00    6.00   10.00   25.00    0.00  180.00 -999.00
          AE18         AE17    8.00  350.50   17.00    3.00    5.00    0.00    0.00  170.50 -999.00
@@ -46,6 +46,7 @@ DECLINATION: 0.00  FORMAT: DIIDLRUDLADadBT
 
 FROM         TO           LEN     BEAR    INC     LEFT    RIGHT   UP      DOWN    AZM2    INC2    FLAGS COMMENTS
 
+       A1LRUD           A1    0.00 -999.00 -999.00    2.00    7.00    3.00    4.50 -999.00 -999.00
            A1           A2   48.83  292.00  -42.00    5.00   10.00   35.00    5.00  110.00 -999.00
            A2           A3   12.42  333.50   35.00    3.00    1.00   15.00    5.00  153.50 -999.00
            A3           A4    4.17    0.00   90.00    3.00    1.00   10.00   10.00    0.00 -999.00
@@ -81,6 +82,19 @@ FROM         TO           LEN     BEAR    INC     LEFT    RIGHT   UP      DOWN  
          QAP5         QAP6   23.00   39.50    9.00    3.00    4.00    0.00   15.00  219.00   -9.50
          QAP6         QAP7   35.10   11.50    0.50    3.00    6.00    1.00   25.00  191.00   -1.00
          QAP7         QAP8    5.80    0.00  -90.00    2.00    4.00    6.00   20.00 -999.00   90.00
+\f
+Fisher Ridge Cave System
+SURVEY NAME: 5
+SURVEY DATE: 3 5 1983  COMMENT:DOUG'S DEMISE (50 FT DROP), CHRIS CROSS, CRAWL ABOVE DROP
+SURVEY TEAM:
+PETER QUICK;CHIP HOPPER
+DECLINATION: 0.00  FORMAT: DDDDLRUDLADadBT
+
+FROM         TO           LEN     BEAR    INC     LEFT    RIGHT   UP      DOWN    AZM2    INC2    FLAGS COMMENTS
+
+          B29          B30   29.50  320.00    0.97    2.00    3.00    4.00    2.00  141.00 -999.00
+          B30          B31   13.70    0.00   40.00    2.00    4.00    6.00    9.00  180.00 -999.00
+          B30        B30sp   13.70    0.00   40.00    2.00    4.00    6.00    0.00  180.00 -999.00 #|L#
 \f
 `.replace(/\n/gm, '\r\n')
     )

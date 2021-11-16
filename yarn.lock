@@ -1169,10 +1169,10 @@
     "@speleotica/unitized" "^2.0.0"
     lodash "^4.17.15"
 
-"@speleotica/frcsdata@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@speleotica/frcsdata/-/frcsdata-3.0.0.tgz#8445adc9e3a44114b52cfb43e56be47053981a48"
-  integrity sha512-lhzgrm+4mliukzlkKx8W+1Q4bCYD7U67sU1aIJFJBO6nkWfWBim7hQc5nL3U/kaosy/k3cVWeiG1qJl17FBC2w==
+"@speleotica/frcsdata@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/@speleotica/frcsdata/-/frcsdata-4.0.0.tgz#92296abe1f0f3e36e2d5688b77fb9e39a0e1a1d5"
+  integrity sha512-nrj9mnLZ6J0xsdZTzEUcfWeLWFJQ4ZlLwQxL+3fM5MHIRFZQ8RKteYHOxU0ikwm27RE0VZWOHkR7CXEd/GxeiA==
   dependencies:
     "@babel/runtime" "^7.1.5"
     "@speleotica/unitized" "^2.0.0"
