@@ -13,8 +13,7 @@ import {
   DistanceUnit,
   AzimuthUnit,
   InclinationUnit,
-  FrontsightItem,
-  BacksightItem,
+  ShotItem,
   LrudAssociation,
 } from '@speleotica/compass/dat'
 import {
@@ -187,15 +186,20 @@ export default function convertToDat({
               LrudItem.Up,
               LrudItem.Down,
             ],
-            frontsightOrder: [
-              FrontsightItem.Distance,
-              FrontsightItem.Azimuth,
-              FrontsightItem.Inclination,
-            ],
-            backsightOrder:
+            shotOrder:
               hasBacksightAzimuth || hasBacksightInclination
-                ? [BacksightItem.Azimuth, BacksightItem.Inclination]
-                : null,
+                ? [
+                    ShotItem.Distance,
+                    ShotItem.FrontsightAzimuth,
+                    ShotItem.FrontsightInclination,
+                    ShotItem.BacksightAzimuth,
+                    ShotItem.BacksightInclination,
+                  ]
+                : [
+                    ShotItem.Distance,
+                    ShotItem.FrontsightAzimuth,
+                    ShotItem.FrontsightInclination,
+                  ],
             hasRedundantBacksights: Boolean(
               hasBacksightAzimuth || hasBacksightInclination
             ),

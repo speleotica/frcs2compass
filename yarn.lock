@@ -1160,14 +1160,16 @@
     lodash "^4.17.4"
     read-pkg-up "^7.0.0"
 
-"@speleotica/compass@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@speleotica/compass/-/compass-4.0.0.tgz#4d115f0a0b99a57ac998d0b8b460d63c7de86bcf"
-  integrity sha512-DX+trzQlpYEqFE3ZUkLRaMtSBVRGfb08eHfalwD7yf5jfP4oR+32UlNhXzryy2dIld+XzHrkJ2hFpaknN3a7tA==
+"@speleotica/compass@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.npmjs.org/@speleotica/compass/-/compass-5.1.1.tgz#1c514789e5f1a9f1a74f8e6002fa18c99e93195a"
+  integrity sha512-+HhyIXDbenJmjYIPHeV6Mhi4op+pNovqm2AGAIFV76lx81qTqf5lWUgs04cniNbrcLVTD8HULzpWPefPUtW7Uw==
   dependencies:
     "@babel/runtime" "^7.1.5"
     "@speleotica/unitized" "^2.0.0"
+    iconv-lite "^0.5.0"
     lodash "^4.17.15"
+    parse-segment "^1.5.3"
 
 "@speleotica/frcsdata@^4.0.0":
   version "4.0.0"
@@ -4168,6 +4170,13 @@ iconv-lite@^0.4.17, iconv-lite@^0.4.24, iconv-lite@~0.4.13:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
+iconv-lite@^0.5.0:
+  version "0.5.2"
+  resolved "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.5.2.tgz#af6d628dccfb463b7364d97f715e4b74b8c8c2b8"
+  integrity sha512-kERHXvpSaB4aU3eANwidg79K8FlrN77m8G9V+0vOR3HYaRifrlwMEpT7ZBJqLSEIHnEgJTHcWK82wwLwwKwtag==
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3"
+
 iferr@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/iferr/-/iferr-0.1.5.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"
@@ -6679,6 +6688,14 @@ parse-segment@^1.5.1:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/parse-segment/-/parse-segment-1.5.2.tgz#df42d231edfbb754959f52a6cdbfd356d3944114"
   integrity sha512-1vIt1GUSB3xS6lxCd2qSoAGvTjjURmgKsfOFKPf7h518kH0fZGUByeOm6Z7Xc41fuscsLzSLA9QHfEgdz4eeDw==
+  dependencies:
+    "@babel/runtime" "^7.1.5"
+    es6-error "^4.1.1"
+
+parse-segment@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.npmjs.org/parse-segment/-/parse-segment-1.5.3.tgz#046b575a521368f378e83b251d3ae2ff0ff1b5d0"
+  integrity sha512-SlCfNpA7NM41GaBGU5nfhfLnc3vxQ0QSwtCgs8ek83RjbsKnw9uIzdZ4Pi4UIfsL0tZnxaBnmMLMs44gUxBpvA==
   dependencies:
     "@babel/runtime" "^7.1.5"
     es6-error "^4.1.1"
