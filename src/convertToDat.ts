@@ -75,10 +75,8 @@ export default function convertToDat({
     trips: survey.trips.map(
       (
         {
-          header: {
-            name,
-            date,
-            team,
+          header: { name, date, team },
+          units: {
             distanceUnit,
             azimuthUnit,
             inclinationUnit,
