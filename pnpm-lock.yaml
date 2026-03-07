@@ -12,8 +12,8 @@ importers:
         specifier: ^7.26.0
         version: 7.28.6
       '@speleotica/compass':
-        specifier: ^5.1.1
-        version: 5.1.1(@babel/core@7.29.0)
+        specifier: ^5.1.2
+        version: 5.1.2(@babel/core@7.29.0)
       '@speleotica/frcsdata':
         specifier: ^5.0.0-beta.1
         version: 5.0.0-beta.1(@babel/core@7.29.0)
@@ -778,9 +778,9 @@ packages:
   '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
     resolution: {integrity: sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg==}
 
-  '@speleotica/compass@5.1.1':
-    resolution: {integrity: sha512-+HhyIXDbenJmjYIPHeV6Mhi4op+pNovqm2AGAIFV76lx81qTqf5lWUgs04cniNbrcLVTD8HULzpWPefPUtW7Uw==}
-    engines: {node: '>=10'}
+  '@speleotica/compass@5.1.2':
+    resolution: {integrity: sha512-jg45XkGwo1GC+ychLNSVeSZe3gux9HIdWw+z6iM4r90pDyZA3j3sIz+QPFUiBVIkJk+uLrTiUwpNWAUsHUqZxQ==}
+    engines: {node: '>=16'}
 
   '@speleotica/frcsdata@5.0.0-beta.1':
     resolution: {integrity: sha512-BpNfBJTtCJ94Ocqt/hKHJOT3olEybZk9aVmZ4ZZDlX0zvPgftIkHh1t78FgUxgl43theSqCRf2jHTPwsxsezWA==}
@@ -1689,6 +1689,9 @@ packages:
   lodash@4.17.15:
     resolution: {integrity: sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==}
 
+  lodash@4.17.23:
+    resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
+
   log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
     engines: {node: '>=10'}
@@ -1852,9 +1855,6 @@ packages:
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
-
-  parse-segment@1.5.3:
-    resolution: {integrity: sha512-SlCfNpA7NM41GaBGU5nfhfLnc3vxQ0QSwtCgs8ek83RjbsKnw9uIzdZ4Pi4UIfsL0tZnxaBnmMLMs44gUxBpvA==}
 
   parse-segment@1.5.4:
     resolution: {integrity: sha512-5vvwNdyXT3Ds535oHU8ijcTafkMdfOPO71yaGKLVSM8NkUIsS1btziowggCeqrrtoXNefKMiSMRMdkZBB45fLw==}
@@ -3296,13 +3296,13 @@ snapshots:
     dependencies:
       eslint-scope: 5.1.1
 
-  '@speleotica/compass@5.1.1(@babel/core@7.29.0)':
+  '@speleotica/compass@5.1.2(@babel/core@7.29.0)':
     dependencies:
       '@babel/runtime': 7.28.6
       '@speleotica/unitized': 2.0.0(@babel/core@7.29.0)
       iconv-lite: 0.5.2
-      lodash: 4.17.15
-      parse-segment: 1.5.3
+      lodash: 4.17.23
+      parse-segment: 1.5.4
     transitivePeerDependencies:
       - '@babel/core'
 
@@ -4250,6 +4250,8 @@ snapshots:
 
   lodash@4.17.15: {}
 
+  lodash@4.17.23: {}
+
   log-symbols@4.1.0:
     dependencies:
       chalk: 4.1.2
@@ -4459,11 +4461,6 @@ snapshots:
   parent-module@1.0.1:
     dependencies:
       callsites: 3.1.0
-
-  parse-segment@1.5.3:
-    dependencies:
-      '@babel/runtime': 7.28.6
-      es6-error: 4.1.1
 
   parse-segment@1.5.4:
     dependencies:
