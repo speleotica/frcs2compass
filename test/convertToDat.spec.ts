@@ -1,19 +1,19 @@
-/* eslint-env node */
-
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-import convertToDat from './convertToDat'
+import convertToDat from '../src/convertToDat'
 import {
   parseFrcsSurveyFile,
   parseFrcsTripSummaryFile,
 } from '@speleotica/frcsdata/node'
 import { formatCompassDatFile } from '@speleotica/compass/dat'
+import { dirname } from './dirname'
+import path from 'path'
 
-describe('convertToDat', function() {
-  it('basic test', async function() {
-    const survey = await parseFrcsSurveyFile(require.resolve('./cdata.fr'))
+describe('convertToDat', function () {
+  it('basic test', async function () {
+    const survey = await parseFrcsSurveyFile(path.join(dirname, './cdata.fr'))
     const summaries = await parseFrcsTripSummaryFile(
-      require.resolve('./STAT_sum.txt')
+      path.join(dirname, './STAT_sum.txt')
     )
     const dat = convertToDat({ survey, summaries })
     expect(formatCompassDatFile(dat)).to.equal(
