@@ -75,10 +75,8 @@ export default function convertToDat({
     trips: survey.trips.map(
       (
         {
-          header: {
-            name,
-            date,
-            team,
+          header: { name, date, team },
+          units: {
             distanceUnit,
             azimuthUnit,
             inclinationUnit,
@@ -91,14 +89,12 @@ export default function convertToDat({
         }: FrcsTrip,
         index: number
       ): CompassTrip => {
-        const summary: FrcsTripSummary | undefined = summaries
-          ? summaries.tripSummaries[index]
-          : undefined
+        const summary: FrcsTripSummary | undefined =
+          summaries ? summaries.tripSummaries[index] : undefined
 
         function* convertShot(shot: FrcsShot): Iterable<CompassShot> {
-          const { from, to, excludeDistance, comment } = shot
+          const { distance, from, to, excludeDistance, comment } = shot
           let {
-            distance,
             frontsightAzimuth,
             frontsightInclination,
             backsightAzimuth,
@@ -113,7 +109,6 @@ export default function convertToDat({
             frontsightInclination = Unitize.degrees(0)
           }
           if (
-            !distance ||
             distance.isZero ||
             isVertical(frontsightInclination, backsightInclination?.negate()) ||
             isVertical(backsightInclination?.negate(), frontsightInclination)
@@ -122,7 +117,6 @@ export default function convertToDat({
               frontsightAzimuth = Unitize.degrees(0)
             }
           }
-          if (distance == null) distance = new UnitizedNumber(0, distanceUnit)
           if (fromLruds) {
             const { left, right, up, down } = fromLruds
             yield {
@@ -170,10 +164,9 @@ export default function convertToDat({
             name: String(index + 1),
             date: summary ? summary.date : date || new Date(0, 0, 1),
             comment: summary ? summary.name : name,
-            team: summary
-              ? summary.team.join(';')
-              : team
-              ? team.join(';')
+            team:
+              summary ? summary.team.join(';')
+              : team ? team.join(';')
               : null,
             declination: Unitize.degrees(0),
             distanceUnit: convertDistanceUnit(distanceUnit),
@@ -187,19 +180,19 @@ export default function convertToDat({
               LrudItem.Down,
             ],
             shotOrder:
-              hasBacksightAzimuth || hasBacksightInclination
-                ? [
-                    ShotItem.Distance,
-                    ShotItem.FrontsightAzimuth,
-                    ShotItem.FrontsightInclination,
-                    ShotItem.BacksightAzimuth,
-                    ShotItem.BacksightInclination,
-                  ]
-                : [
-                    ShotItem.Distance,
-                    ShotItem.FrontsightAzimuth,
-                    ShotItem.FrontsightInclination,
-                  ],
+              hasBacksightAzimuth || hasBacksightInclination ?
+                [
+                  ShotItem.Distance,
+                  ShotItem.FrontsightAzimuth,
+                  ShotItem.FrontsightInclination,
+                  ShotItem.BacksightAzimuth,
+                  ShotItem.BacksightInclination,
+                ]
+              : [
+                  ShotItem.Distance,
+                  ShotItem.FrontsightAzimuth,
+                  ShotItem.FrontsightInclination,
+                ],
             hasRedundantBacksights: Boolean(
               hasBacksightAzimuth || hasBacksightInclination
             ),

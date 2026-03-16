@@ -1,19 +1,22 @@
-/* eslint-env node */
-
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-import convertToDat from './convertToDat'
+import convertToDat from '../src/convertToDat'
 import {
   parseFrcsSurveyFile,
   parseFrcsTripSummaryFile,
 } from '@speleotica/frcsdata/node'
 import { formatCompassDatFile } from '@speleotica/compass/dat'
+import { dirname } from './dirname'
+import path from 'path'
 
-describe('convertToDat', function() {
-  it('basic test', async function() {
-    const survey = await parseFrcsSurveyFile(require.resolve('./cdata.fr'))
+describe('convertToDat', function () {
+  it('basic test', async function () {
+    const survey = await parseFrcsSurveyFile(path.join(dirname, './cdata.fr'))
+    if ('INVALID' in survey) {
+      throw new Error('survey is invalid')
+    }
     const summaries = await parseFrcsTripSummaryFile(
-      require.resolve('./STAT_sum.txt')
+      path.join(dirname, './STAT_sum.txt')
     )
     const dat = convertToDat({ survey, summaries })
     expect(formatCompassDatFile(dat)).to.equal(
@@ -69,7 +72,7 @@ Fisher Ridge Cave System
 SURVEY NAME: 4
 SURVEY DATE: 3 5 1983  COMMENT:Hunky-Dory Mopup:  Q19-PD7 loop (Quap Passage), Q1 Side Lead, Others.
 SURVEY TEAM:
-PETER QUICK;CHIP HOPPER
+Peter Quick;Chip Hopper
 DECLINATION: 0.00  FORMAT: DDDDLRUDLADadBT
 
 FROM         TO           LEN     BEAR    INC     LEFT    UP      DOWN    RIGHT   AZM2    INC2    FLAGS COMMENTS
@@ -85,9 +88,9 @@ FROM         TO           LEN     BEAR    INC     LEFT    UP      DOWN    RIGHT 
 \f
 Fisher Ridge Cave System
 SURVEY NAME: 5
-SURVEY DATE: 3 5 1983  COMMENT:DOUG'S DEMISE (50 FT DROP), CHRIS CROSS, CRAWL ABOVE DROP
+SURVEY DATE: 3 6 1981  COMMENT:DOUG'S DEMISE (50 FT DROP), CHRIS CROSS, CRAWL ABOVE DROP
 SURVEY TEAM:
-PETER QUICK;CHIP HOPPER
+Peter Quick;Chris Gerace;Phil Oden;Chip Hopper
 DECLINATION: 0.00  FORMAT: DDDDLRUDLADadBT
 
 FROM         TO           LEN     BEAR    INC     LEFT    UP      DOWN    RIGHT   AZM2    INC2    FLAGS COMMENTS
